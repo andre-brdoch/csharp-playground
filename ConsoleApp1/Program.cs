@@ -16,6 +16,38 @@ namespace ConsoleApp1
             Console.WriteLine("Basic: False is " + patternMatcher.basic(false));
             Console.WriteLine("Basic: False with fallback is " + patternMatcher.basicWithCatchAll(false));
 
+            Lists lists = new Lists();
+        }
+    }
+
+    internal class Lists
+    {
+        public Lists()
+        {
+            int[] numbers = [1, 2, 3, 4];
+            int[] moreNumbers = [5, 6, 7, 8];
+            int[] combined = [.. numbers, .. moreNumbers];
+
+            Console.WriteLine(this.toString(numbers));
+            Console.WriteLine(this.toString(combined));
+        }
+
+        public string toString(int[] list)
+        {
+            string result = "[";
+            for (int i = 0; i < list.Length - 1; i++)
+            {
+                if (result.Length > 1)
+                {
+                    result += ", ";
+                }
+                result += list[i].ToString();
+                if (i == list.Length - 2)
+                {
+                    result += "]";
+                }
+            }
+            return result;
         }
     }
 
